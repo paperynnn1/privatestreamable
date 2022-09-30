@@ -38,9 +38,9 @@ getgenv().Aiming = {
     Enabled = true,
 
     ShowFOV = false,
-    FOV = 16,
+    FOV = 25,
     FOVSides = 25,
-    FOVColour = Color3fromRGB(255, 255, 255),
+    FOVColour = Color3fromRGB(5, 25, 255),
 
     VisibleCheck = true,
     
@@ -74,16 +74,6 @@ circle.Color = Aiming.FOVColour
 circle.Filled = false
 Aiming.FOVCircle = circle
 
-local OutLine = Drawing.new("Circle")
-OutLine.Visible = Aiming.ShowFOV
-OutLine.Color = Aiming.FOVColour
-OutLine.NumSides = 100
-OutLine.Transparency = 0.9
-OutLine.Thickness = 0.8
-OutLine.Radius = Aiming.FOV * 3
-Outline.Filled = false
-OutLine.ZIndex = 999
-
 -- // Update
 function Aiming.UpdateFOV()
     -- // Make sure the circle exists
@@ -111,7 +101,7 @@ local CalcChance = function(percentage)
     local chance = mathfloor(Randomnew().NextNumber(Randomnew(), 0, 1) * 100) / 100
 
     -- // Return
-    return chance <= percentage / 100
+    return chance <= percentage / 110
 end
 
 -- // Customisable Checking Functions: Is a part visible
